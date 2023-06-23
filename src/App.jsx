@@ -1,8 +1,14 @@
 import React from 'react'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './Routes/Routes/Routes'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   return (
-    <div className='text-red-500 text-7xl'>App</div>
+    <div className=''>
+      <RouterProvider router={router}></RouterProvider>
+      <Toaster/>
+    </div>
   )
 }
 
