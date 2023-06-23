@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8 bg-gray-100 shadow-md">
+    <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8 bg-gray-100 shadow-sm sticky top-0 w-full z-20">
       <div className="relative flex items-center justify-between">
         <a
           href="/"
