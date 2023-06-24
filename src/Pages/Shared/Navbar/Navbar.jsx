@@ -1,13 +1,22 @@
-import React, { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => { })
+      .catch(error => console.error(error))
+  }
+
   return (
-    <div className="px-4 py-2 mx-auto md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8 bg-gray-100 shadow-sm sticky top-0 w-full z-20">
+    <div className="px-4 py-2 mx-auto md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8 bg-gray-100 shadow-sm sticky top-0  z-20">
       <div className="relative flex items-center justify-between">
-        <a
-          href="/"
+        <Link
+          to="/"
           aria-label="SwiftSell"
           title="SwiftSell"
           className="inline-flex items-center"
@@ -30,37 +39,37 @@ const Navbar = () => {
           <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
             SwiftSell
           </span>
-        </a>
+        </Link>
         <ul className="items-center hidden space-x-8 lg:flex">
           <li>
-            <a
-              href="/"
+            <Link
+              to="/products"
               aria-label="Our product"
               title="Our product"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
               Product
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/"
+            <Link
+              to="/"
               aria-label="Our product"
               title="Our product"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
               Features
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/"
+            <Link
+              to="/"
               aria-label="Product pricing"
               title="Product pricing"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
               Pricing
-            </a>
+            </Link>
           </li>
           <li>
             <Link
@@ -72,18 +81,27 @@ const Navbar = () => {
               Dashboard
             </Link>
           </li>
-          <li>
-            <a
-              href="/"
-              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-              aria-label="Sign up"
-              title="Sign up"
-            >
-              Sign up
-            </a>
-          </li>
+          {
+            user?.uid
+              ?
+              <li>
+                <div title='Log Out'>
+                  <button onClick={handleLogOut} type="button" className="px-4 py-3 font-semibold rounded-lg bg-rose-600 text-white">Log Out</button>
+                </div>
+              </li>
+              :
+              <li>
+                <Link
+                  to="/signin"
+                  className="inline-flex items-center justify-center py-3 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                  aria-label="Sign up"
+                  title="Sign up"
+                >
+                  Sign up
+                </Link>
+              </li>
+          }
         </ul>
-        
         <div className="lg:hidden">
           <button
             aria-label="Open Menu"
@@ -111,8 +129,8 @@ const Navbar = () => {
               <div className="p-5 bg-white border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <a
-                      href="/"
+                    <Link
+                      to="/"
                       aria-label="SwiftSell"
                       title="SwiftSell"
                       className="inline-flex items-center"
@@ -135,7 +153,7 @@ const Navbar = () => {
                       <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                         SwiftSell
                       </span>
-                    </a>
+                    </Link>
                   </div>
                   <div>
                     <button
@@ -156,34 +174,34 @@ const Navbar = () => {
                 <nav>
                   <ul className="space-y-4">
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/products"
                         aria-label="Our product"
                         title="Our product"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Product
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         aria-label="Our product"
                         title="Our product"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Features
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         aria-label="Product pricing"
                         title="Product pricing"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Pricing
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <Link
@@ -195,16 +213,26 @@ const Navbar = () => {
                         Dashboard
                       </Link>
                     </li>
-                    <li>
-                      <a
-                        href="/"
-                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                        aria-label="Sign up"
-                        title="Sign up"
-                      >
-                        Sign up
-                      </a>
-                    </li>
+                    {
+                      user?.uid
+                        ?
+                        <li>
+                          <div title='Log Out'>
+                            <button onClick={handleLogOut} type="button" className="w-full px-4 py-2 font-semibold rounded-lg bg-rose-400 text-white">Log Out</button>
+                          </div>
+                        </li>
+                        :
+                        <li>
+                          <Link
+                            to="/signin"
+                            className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                            aria-label="Sign up"
+                            title="Sign up"
+                          >
+                            Sign up
+                          </Link>
+                        </li>
+                    }
                   </ul>
                 </nav>
               </div>

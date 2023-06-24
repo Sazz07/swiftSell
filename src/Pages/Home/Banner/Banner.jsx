@@ -1,4 +1,3 @@
-import React from 'react'
 import './Banner.css';
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -115,7 +114,7 @@ const Banner = () => {
                                     Let us find your
 
                                     <strong className="block font-extrabold text-rose-700">
-                                        Desire Gift.
+                                        Desire Products.
                                     </strong>
                                 </h1>
 

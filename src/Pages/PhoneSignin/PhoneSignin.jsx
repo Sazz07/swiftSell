@@ -61,8 +61,8 @@ const PhoneSignin = () => {
         window.confirmationResult
             .confirm(otp)
             .then(async (res) => {
-                console.log(res);
-                // 
+                //console.log(res); 
+                saveUser(res.user?.phoneNumber)
                 setLoading(false);
             })
             .catch((err) => {
@@ -70,6 +70,22 @@ const PhoneSignin = () => {
                 setLoading(false);
             });
     }
+
+    // save user to the database 
+    const saveUser = (phone) => {
+        const user = {
+            phone
+        };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {})
+    };
 
     return (
         <section className="bg-emerald-500 flex items-center justify-center h-screen">
