@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8 bg-gray-100 shadow-sm sticky top-0 w-full z-20">
+    <div className="px-4 py-2 mx-auto md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8 bg-gray-100 shadow-sm sticky top-0 w-full z-20">
       <div className="relative flex items-center justify-between">
         <a
           href="/"
@@ -62,14 +63,14 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a
-              href="/"
-              aria-label="About us"
-              title="About us"
+            <Link
+              to="/dashboard"
+              aria-label="Dashboard"
+              title="Dashboard"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
-              About us
-            </a>
+              Dashboard
+            </Link>
           </li>
           <li>
             <a
@@ -82,6 +83,7 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
+        
         <div className="lg:hidden">
           <button
             aria-label="Open Menu"
@@ -184,14 +186,14 @@ const Navbar = () => {
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="/"
-                        aria-label="About us"
-                        title="About us"
+                      <Link
+                        to="/dashboard"
+                        aria-label="Dashboard"
+                        title="Dashboard"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
-                        About us
-                      </a>
+                        Dashboard
+                      </Link>
                     </li>
                     <li>
                       <a
