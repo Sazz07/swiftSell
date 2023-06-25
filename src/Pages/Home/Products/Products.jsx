@@ -11,7 +11,7 @@ const Products = () => {
                 setProducts(res.data);
             })
             .catch(error => {
-                console.error('Error fetching services:', error);
+                console.error('Error fetching products:', error);
             });
     }, []);
     // console.log(products);

@@ -64,8 +64,11 @@ const PhoneSignin = () => {
         window.confirmationResult
             .confirm(otp)
             .then(async (res) => {
-                //console.log(res); 
-                saveUser(res.user?.phoneNumber)
+                // console.log(res);   
+                const oldNumber = res.user?.phoneNumber;
+                const phone = oldNumber ? oldNumber.replace("+", "") :null;
+                // console.log(phone);
+                saveUser(phone);
                 setLoading(false);
                 navigate('/');
             })

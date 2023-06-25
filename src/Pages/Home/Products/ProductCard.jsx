@@ -6,13 +6,13 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 const ProductCard = ({ product }) => {
-    const { user } = useContext(AuthContext);
+    const { phone } = useContext(AuthContext);
     const { _id, category, title, image, price } = product;
     // console.log(user?.phoneNumber);
 
     const handleCarts = (id) => {
         const cartData = {
-            phone: user?.phoneNumber,
+            phone: phone,
             productId: id,
             category,
             productName: title,
@@ -45,11 +45,11 @@ const ProductCard = ({ product }) => {
             <div className="space-y-2">
                 <div className="mt-4 flex justify-between items-center">
                     <span className="text-gray-100 uppercase font-semibold text-xs bg-yellow-400 px-3 py-1 rounded-sm">{category}</span>
-                    <span className="text-gray-100 font-semibold text-xs bg-red-600 px-3 py-1 rounded-sm">2% Discount</span>
+                    <span className="text-gray-100 font-semibold text-xs bg-red-600 px-3 py-1 rounded-sm">5% Discount</span>
                 </div>
                 <p className="text-lg font-bold text-black truncate block capitalize">{title.length > 16 ? `${title.slice(0, 16)}...` : title}</p>
                 <div className="flex items-center">
-                    <p className="text-lg font-semibold text-black cursor-auto">${(price - (0.02 * price)).toFixed(2)}</p>
+                    <p className="text-lg font-semibold text-black cursor-auto">${(price - (0.05 * price)).toFixed(2)}</p>
                     <del className="text-red-700">
                         <p className="text-sm text-red-600 cursor-auto ml-2">${price}</p>
                     </del>

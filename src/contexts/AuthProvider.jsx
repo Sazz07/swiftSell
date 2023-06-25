@@ -27,11 +27,15 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, []);
 
+    const oldNumber = user?.phoneNumber;
+    const phone = oldNumber ? oldNumber.replace("+", "") :null;
+    // console.log(phone);
     const authInfo = {
         logOut,
         loading,
         setLoading,
-        user
+        user,
+        phone
     }
     return (
         <AuthContext.Provider value={authInfo}>
