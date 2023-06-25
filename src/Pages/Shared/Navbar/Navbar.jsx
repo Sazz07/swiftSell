@@ -154,6 +154,7 @@ const Navbar = () => {
                   <ul className="space-y-4">
                     <li>
                       <Link
+                        onClick={() => setIsMenuOpen(false)}
                         to="/products"
                         aria-label="Our product"
                         title="Our product"
@@ -164,6 +165,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link
+                        onClick={() => setIsMenuOpen(false)}
                         to="/carts"
                         aria-label="Carts"
                         title="Carts"
@@ -177,6 +179,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link
+                        onClick={() => setIsMenuOpen(false)}
                         to="/dashboard"
                         aria-label="Dashboard"
                         title="Dashboard"
