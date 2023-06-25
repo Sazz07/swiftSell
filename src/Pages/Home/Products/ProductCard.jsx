@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
             image,
             price
         }
-        axios.post("http://localhost:5000/carts", cartData, {
+        axios.post("https://e-commerce-task-server-mu.vercel.app/carts", cartData, {
             headers: {
                 "content-type": "application/json",
             }

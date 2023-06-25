@@ -8,7 +8,7 @@ const CartItems = ({ cart, refetch }) => {
 
     const handleDeleteCart = (id) => {
         axios
-            .delete(`http://localhost:5000/carts/${id}`)
+            .delete(`https://e-commerce-task-server-mu.vercel.app/carts/${id}`)
             .then((res) => {
                 const data = res.data;
                 if (data.deletedCount > 0) {

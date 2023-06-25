@@ -9,7 +9,7 @@ import Loading from "../Shared/Loading/Loading";
 const Carts = () => {
     const { phone } = useContext(AuthContext);
     console.log(phone);
-    const url = `http://localhost:5000/carts?phone=${phone}`
+    const url = `https://e-commerce-task-server-mu.vercel.app/carts?phone=${phone}`
 
     const { data: carts = [], isLoading, refetch } = useQuery({
         queryKey: ['carts'],

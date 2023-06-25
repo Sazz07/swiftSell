@@ -6,7 +6,7 @@ import ProductCard from './ProductCard';
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:5000/products')
+        axios.get('https://e-commerce-task-server-mu.vercel.app/products')
             .then(res => {
                 setProducts(res.data);
             })

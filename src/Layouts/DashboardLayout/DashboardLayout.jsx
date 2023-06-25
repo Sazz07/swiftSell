@@ -6,7 +6,7 @@ const DashboardLayout = () => {
     const { data: customers = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('https://e-commerce-task-server-mu.vercel.app/users');
             const data = await res.json();
             return data;
         }
@@ -14,7 +14,7 @@ const DashboardLayout = () => {
     const { data: products = [] } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/products');
+            const res = await fetch('https://e-commerce-task-server-mu.vercel.app/products');
             const data = await res.json();
             return data;
         }
