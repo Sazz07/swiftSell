@@ -19,7 +19,7 @@ const Carts = () => {
             return data;
         }
     });
-    console.log(carts);
+    // console.log(carts);
 
     const totalPrice = carts.reduce((acc, curr) => acc + ((curr.price) - (0.05 * curr.price)), 0);
 

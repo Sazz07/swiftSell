@@ -6,6 +6,8 @@ import PhoneSignin from "../../Pages/PhoneSignin/PhoneSignin";
 import AllProducts from "../../Pages/Home/Products/AllProducts";
 import ProductDetails from "../../Pages/Home/Products/ProductDetails";
 import Carts from "../../Pages/Carts/Carts";
+import ProductList from "../../Pages/Dashboard/ProductList/ProductList";
+import CustomerList from "../../Pages/Dashboard/CustomerList.jsx/CustomerList";
 
 export const router = createBrowserRouter([
     {
@@ -44,8 +46,13 @@ export const router = createBrowserRouter([
         element: <DashboardLayout />,
         children: [
             {
-
-            }
+                path: '/dashboard/productlist',
+                element: <ProductList/>
+            },
+            {
+                path: '/dashboard/customerlist',
+                element: <CustomerList/>
+            },
         ]
     }
 ])
