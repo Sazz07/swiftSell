@@ -50,24 +50,25 @@ const Navbar = () => {
               <span>Carts</span>
             </Link>
           </li>
-          <li>
-            <Link
-              to="/dashboard"
-              aria-label="Dashboard"
-              title="Dashboard"
-              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-            >
-              Dashboard
-            </Link>
-          </li>
           {
             user?.uid
               ?
-              <li>
-                <div title='Log Out'>
-                  <button onClick={handleLogOut} type="button" className="px-4 py-3 font-semibold rounded-lg bg-rose-600 text-white">Log Out</button>
-                </div>
+              <> <li>
+                <Link
+                  to="/dashboard"
+                  aria-label="Dashboard"
+                  title="Dashboard"
+                  className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                >
+                  Dashboard
+                </Link>
               </li>
+                <li>
+                  <div title='Log Out'>
+                    <button onClick={handleLogOut} type="button" className="px-4 py-3 font-semibold rounded-lg bg-rose-600 text-white">Log Out</button>
+                  </div>
+                </li>
+              </>
               :
               <li>
                 <Link
