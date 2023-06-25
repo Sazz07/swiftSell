@@ -34,3 +34,7 @@ Start the server
 ```bash
   npm run dev
 ```
+
+## Note
+
+* Please run the app on http://localhost:3000/ if you are running the app locally.
