@@ -10,6 +10,7 @@ import { app } from "../../firebase/firebase.config";
 import { toast, Toaster } from "react-hot-toast";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const auth = getAuth(app);
 
@@ -18,6 +19,8 @@ const PhoneSignin = () => {
     const [otp, setOtp] = useState("");
     const [ph, setPh] = useState("");
     const [showOTP, setShowOTP] = useState(false);
+    const navigate = useNavigate();
+
 
     const onCaptchVerify = () => {
         if (!window.recaptchaVerifier) {
@@ -64,6 +67,7 @@ const PhoneSignin = () => {
                 //console.log(res); 
                 saveUser(res.user?.phoneNumber)
                 setLoading(false);
+                navigate('/');
             })
             .catch((err) => {
                 console.log(err);
@@ -84,11 +88,13 @@ const PhoneSignin = () => {
             body: JSON.stringify(user)
         })
             .then(res => res.json())
-            .then(data => {})
+            .then(data => {
+                
+            })
     };
-
+    // console.log(signUpPhone);
     return (
-        <section className="bg-emerald-500 flex items-center justify-center h-screen">
+        <section className="bg-[url('https://i.postimg.cc/fLYV4dNv/image-2.webp')] flex items-center justify-center h-screen bg-no-repeat bg-cover bg-center">
             <div>
                 <Toaster toastOptions={{ duration: 4000 }} />
                 <div id="recaptcha-container"></div>
@@ -142,7 +148,7 @@ const PhoneSignin = () => {
                                 >
                                     Verify your phone number
                                 </label>
-                                <PhoneInput country={"in"} value={ph} onChange={setPh} />
+                                <PhoneInput country={"bd"} value={ph} onChange={setPh} />
                                 <button
                                     onClick={onSignup}
                                     className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"

@@ -4,6 +4,8 @@ import Home from "../../Pages/Home/Home/Home";
 import DashboardLayout from "../../Layouts/DashboardLayout/DashboardLayout";
 import PhoneSignin from "../../Pages/PhoneSignin/PhoneSignin";
 import AllProducts from "../../Pages/Home/Products/AllProducts";
+import ProductDetails from "../../Pages/Home/Products/ProductDetails";
+import Carts from "../../Pages/Carts/Carts";
 
 export const router = createBrowserRouter([
     {
@@ -24,7 +26,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/signin',
-                element: <PhoneSignin/>
+                element: <PhoneSignin />
+            },
+            {
+                path: '/products/:id',
+                element: <ProductDetails />,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+            },
+            {
+                path: '/carts',
+                element: <Carts />
             },
         ]
     },
@@ -33,7 +44,7 @@ export const router = createBrowserRouter([
         element: <DashboardLayout />,
         children: [
             {
-                
+
             }
         ]
     }

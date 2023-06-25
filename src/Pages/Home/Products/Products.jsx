@@ -14,7 +14,7 @@ const Products = () => {
                 console.error('Error fetching services:', error);
             });
     }, []);
-    console.log(products);
+    // console.log(products);
 
     return (
         <section className='my-24 container mx-auto'>
